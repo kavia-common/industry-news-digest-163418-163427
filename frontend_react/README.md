@@ -1,82 +1,49 @@
-# Lightweight React Template for KAVIA
+# Industry News Digest - Frontend (React)
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+Modern, clean, dashboard-style React application for viewing daily industry news summaries, managing notification preferences, browsing archives, and email subscription management.
 
 ## Features
+- Daily summary dashboard with KPI tiles
+- Category filtering and full-text search
+- Expandable article summaries and links to original sources
+- User registration/login (mock backend fallback)
+- Preferences management (topics, frequency)
+- Archived news search
+- Email subscription management
+- Responsive, light theme with business-oriented styling
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+## Quick Start
+1. Install dependencies:
+   npm install
+2. Configure environment:
+   cp .env.example .env
+   # Edit .env to set REACT_APP_API_BASE if a backend is available
+3. Run the app:
+   npm start
+4. Build for production:
+   npm run build
 
-## Getting Started
+If REACT_APP_API_BASE is not set, the app uses in-memory mock endpoints.
 
-In the project directory, you can run:
+## Configuration
+- REACT_APP_API_BASE: Backend API base URL (optional; mock used if missing)
+- REACT_APP_SITE_URL: Public site URL for email redirects
 
-### `npm start`
+## Tech
+- React 18 + React Router 6
+- Zustand for auth state
+- No heavy UI framework, custom CSS with CSS variables
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Project Structure
+src/
+  components/      # Reusable UI building blocks
+  pages/           # Routed pages (Dashboard, Archive, Preferences, Auth, etc.)
+  services/        # API client with mock fallback
+  store/           # Zustand stores
+  App.js           # Routing and layout
+  App.css          # Layout and component styles
+  index.css        # Global styles and variables
 
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
-
-### Components
-
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
-
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
-
-## Learn More
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Notes
+- Authentication/session is simulated when no backend is provided.
+- For production with a backend, set REACT_APP_API_BASE and ensure CORS is configured.
